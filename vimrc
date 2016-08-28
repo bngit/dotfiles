@@ -16,12 +16,15 @@ Plugin 'tomasr/molokai'
 Plugin 'vimwiki/vimwiki'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
 
 so ~/.vim/config/ctrlp_config.vim
 so ~/.vim/config/a_config.vim
 so ~/.vim/config/Tagbar_config.vim
 " so ~/.vim/config/YouCompleteMe_config.vim
 so ~/.vim/config/NERDtree_config.vim
+so ~/.vim/config/vimwiki_config.vim
+so ~/.vim/config/airline_config.vim
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -52,7 +55,8 @@ set wrap	" wrap the line
 
 " GUI settings
 if has("gui_running")
-    set guifont=monaco\ 12
+"    set guifont=monaco\ 12
+    set guifont=Ubuntu\ Mono\ for\ Powerline\ 13
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
@@ -72,28 +76,12 @@ set listchars+=precedes:<,extends:>
 let g:rehash256 = 1
 color molokai
 
-" set status line
-set laststatus=2
-let g:airline_theme="molokai"
-set ttimeoutlen=50
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-
 " disable bell in vim
 set noeb vb t_vb=
 
 " enter fullscreen for gvim in gnome3
 map <silent> <F11>
 \    :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
-
-" for Ctrl-P
-"set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-"set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|out)$',
-    \ 'file': '\v\.(exe|so|dll|so|swp|IAD|o|workspace|depend|layout|cbp)$',
-    \ 'link': 'some_bad_symbolic_links',}
 
 " open url in vim with 'gx'
 if has("gui_running")

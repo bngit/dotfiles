@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-  export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/not/.local/bin:/home/not/bin"
+export PATH="/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/not/.local/bin:/home/not/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
