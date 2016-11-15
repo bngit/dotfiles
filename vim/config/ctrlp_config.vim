@@ -8,4 +8,5 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|out)$',
     \ 'file': '\v\.(exe|so|dll|so|swp|IAD|o|workspace|depend|layout|cbp)$',
     \ 'link': 'some_bad_symbolic_links',}
+let g:ctrlp_by_filename = 1
 

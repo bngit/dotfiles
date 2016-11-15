@@ -6,16 +6,16 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'taglist.vim'
 Plugin 'jlanzarotta/bufexplorer'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'a.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Tagbar'
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-scripts/The-NERD-tree'
-" Plugin 'chriskempson/base16-vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tomasr/molokai'
 Plugin 'vimwiki/vimwiki'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-fugitive'
 
 so ~/.vim/config/ctrlp_config.vim
@@ -46,17 +46,18 @@ so ~/.vim/config/cscope_maps.vim
 " set cindent
 set autoindent
 set tabstop=4
-set softtabstop=4
+" set softtabstop=4
 set shiftwidth=4
 set expandtab
 set showcmd
 set completeopt=longest,menu
-set wrap	" wrap the line
+set laststatus=2
+"set wrap	" wrap the line
 
 " GUI settings
 if has("gui_running")
 "    set guifont=monaco\ 12
-    set guifont=Ubuntu\ Mono\ for\ Powerline\ 13
+    set guifont=Ubuntu\ Mono\ 13
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
@@ -90,3 +91,10 @@ else
     let g:netrw_browsex_viewer= "gnome-open"
 endif
 
+" set the behaviour of backspace
+set backspace=2 " make backspace work like most other apps
+set backspace=indent,eol,start " backspace fix 
+
+" for indent_guide
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2

@@ -6,3 +6,4 @@ let g:ycm_confirm_extra_conf = 0
 nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_show_diagnostics_ui = 0   " disable syntex check
