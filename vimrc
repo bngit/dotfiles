@@ -21,7 +21,7 @@ Plugin 'tpope/vim-fugitive'
 so ~/.vim/config/ctrlp_config.vim
 so ~/.vim/config/a_config.vim
 so ~/.vim/config/Tagbar_config.vim
-" so ~/.vim/config/YouCompleteMe_config.vim
+so ~/.vim/config/YouCompleteMe_config.vim
 so ~/.vim/config/NERDtree_config.vim
 so ~/.vim/config/vimwiki_config.vim
 so ~/.vim/config/airline_config.vim
@@ -68,7 +68,7 @@ endif
 
 " set indicator
 set nu
-set foldcolumn=4
+set foldcolumn=2
 set textwidth=100
 set nowrap
 set sidescroll=1
