@@ -17,6 +17,7 @@ Plugin 'tomasr/molokai'
 Plugin 'vimwiki/vimwiki'
 Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdcommenter'
 
 so ~/.vim/config/ctrlp_config.vim
 so ~/.vim/config/a_config.vim
@@ -52,7 +53,7 @@ set expandtab
 set showcmd
 set completeopt=longest,menu
 set laststatus=2
-"set wrap	" wrap the line
+set wrap	" wrap the line
 
 " GUI settings
 if has("gui_running")
@@ -70,7 +71,6 @@ endif
 set nu
 set foldcolumn=2
 set textwidth=100
-set nowrap
 set sidescroll=1
 set listchars+=precedes:<,extends:>
 " set cursorline
