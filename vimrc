@@ -18,6 +18,7 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'Yggdroot/indentLine'
 
 so ~/.vim/config/ctrlp_config.vim
 so ~/.vim/config/a_config.vim
@@ -33,7 +34,17 @@ filetype plugin indent on    " required
 syntax on
 
 " open GBK txt file correctly
-set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp932,cp936
+" cp936,gb18030,euc-cn  : for simplified Chinese
+" cp950,big5            : for traditional Chinese
+" cp932,shift-jis,sjis  : for Japanese
+" cp949,euc-kr          : for Korean
+" latin1
+"
+" Use the following command to try (% the current file name)
+" :e ++enc=utf-8 %
+
 
 " persistent undo
 set undofile
@@ -93,8 +104,31 @@ endif
 
 " set the behaviour of backspace
 set backspace=2 " make backspace work like most other apps
-set backspace=indent,eol,start " backspace fix 
+set backspace=indent,eol,start " backspace fix
 
 " for indent_guide
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
+
+" highlight trailing whitespace
+" detail see:
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+augroup WhitespaceMatch
+  " Remove ALL autocommands for the WhitespaceMatch group.
+  autocmd!
+  autocmd BufWinEnter * let w:whitespace_match_number =
+        \ matchadd('ExtraWhitespace', '\s\+$')
+  autocmd InsertEnter * call s:ToggleWhitespaceMatch('i')
+  autocmd InsertLeave * call s:ToggleWhitespaceMatch('n')
+augroup END
+function! s:ToggleWhitespaceMatch(mode)
+  let pattern = (a:mode == 'i') ? '\s\+\%#\@<!$' : '\s\+$'
+  if exists('w:whitespace_match_number')
+    call matchdelete(w:whitespace_match_number)
+    call matchadd('ExtraWhitespace', pattern, 10, w:whitespace_match_number)
+  else
+    " Something went wrong, try to be graceful.
+    let w:whitespace_match_number =  matchadd('ExtraWhitespace', pattern)
+  endif
+endfunction
