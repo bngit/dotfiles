@@ -58,7 +58,7 @@ so ~/.vim/config/cscope_maps.vim
 " set cindent
 set autoindent
 set tabstop=4
-" set softtabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
 set showcmd
@@ -110,25 +110,5 @@ set backspace=indent,eol,start " backspace fix
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
-" highlight trailing whitespace
-" detail see:
-" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-augroup WhitespaceMatch
-  " Remove ALL autocommands for the WhitespaceMatch group.
-  autocmd!
-  autocmd BufWinEnter * let w:whitespace_match_number =
-        \ matchadd('ExtraWhitespace', '\s\+$')
-  autocmd InsertEnter * call s:ToggleWhitespaceMatch('i')
-  autocmd InsertLeave * call s:ToggleWhitespaceMatch('n')
-augroup END
-function! s:ToggleWhitespaceMatch(mode)
-  let pattern = (a:mode == 'i') ? '\s\+\%#\@<!$' : '\s\+$'
-  if exists('w:whitespace_match_number')
-    call matchdelete(w:whitespace_match_number)
-    call matchadd('ExtraWhitespace', pattern, 10, w:whitespace_match_number)
-  else
-    " Something went wrong, try to be graceful.
-    let w:whitespace_match_number =  matchadd('ExtraWhitespace', pattern)
-  endif
-endfunction
+" set the list chars
+set list listchars=tab:▸\ ,precedes:←,extends:→,nbsp:␣,trail:∙

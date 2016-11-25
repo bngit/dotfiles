@@ -67,8 +67,8 @@ function installvim {
     echo ""
     echo "Next  do it by hand:"
     echo ""
-    echo "	Install vim Plugins, run:"
-    echo "	$ vim +PluginInstall +qall"
+    echo "  Install vim Plugins, run:"
+    echo "  $ vim +PluginInstall +qall"
     echo ""
 }
 
