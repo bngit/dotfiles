@@ -19,6 +19,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Yggdroot/indentLine'
+Plugin 'w0rp/ale'
 
 so ~/.vim/config/ctrlp_config.vim
 so ~/.vim/config/a_config.vim
@@ -55,8 +56,6 @@ set undolevels=1000
 set hlsearch
 so ~/.vim/config/cscope_maps.vim
 
-" set cindent
-set autoindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -64,7 +63,10 @@ set expandtab
 set showcmd
 set completeopt=longest,menu
 set laststatus=2
-set wrap	" wrap the line
+set nowrap	" not wrap the line
+set cindent
+" set autoindent
+set cino=>s,e0,n0,f0,{0,}0,^0,L-1,:s,=s,l0,b0,g0,hs,ps,ts,is,+s,c3,C0,/0,(s,us,U0,w0,W0,m0,j0,J0,)20,*70,#0
 
 " GUI settings
 if has("gui_running")
@@ -112,3 +114,7 @@ let g:indent_guides_start_level = 2
 
 " set the list chars
 set list listchars=tab:▸\ ,precedes:←,extends:→,nbsp:␣,trail:∙
+
+" for ale -- Asynchronous Lint Engine
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
