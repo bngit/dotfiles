@@ -10,7 +10,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'a.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Tagbar'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tomasr/molokai'
@@ -19,12 +19,13 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Yggdroot/indentLine'
-Plugin 'w0rp/ale'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'airblade/vim-gitgutter'
 
 so ~/.vim/config/ctrlp_config.vim
 so ~/.vim/config/a_config.vim
 so ~/.vim/config/Tagbar_config.vim
-so ~/.vim/config/YouCompleteMe_config.vim
+" so ~/.vim/config/YouCompleteMe_config.vim
 so ~/.vim/config/NERDtree_config.vim
 so ~/.vim/config/vimwiki_config.vim
 so ~/.vim/config/airline_config.vim
@@ -70,8 +71,8 @@ set cino=>s,e0,n0,f0,{0,}0,^0,L-1,:s,=s,l0,b0,g0,hs,ps,ts,is,+s,c3,C0,/0,(s,us,U
 
 " GUI settings
 if has("gui_running")
-"    set guifont=monaco\ 12
-    set guifont=Ubuntu\ Mono\ 13
+"    set guifont=monaco\ 10
+    set guifont=Ubuntu\ Mono\ 11
     set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
@@ -118,3 +119,7 @@ set list listchars=tab:▸\ ,precedes:←,extends:→,nbsp:␣,trail:∙
 " for ale -- Asynchronous Lint Engine
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" hight for 'vim-cpp-enhanced-highlight'
+let g:cpp_class_scope_highlight = 1
+
