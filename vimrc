@@ -79,6 +79,8 @@ if has("gui_running")
     set guioptions-=m  "remove menu bar
     " colorcolumn
     set cc=100
+    " for line space
+    set lsp=1
 endif
 
 " set indicator
