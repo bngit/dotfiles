@@ -78,7 +78,7 @@ if has("gui_running")
     set guioptions-=L  "remove left-hand scroll bar
     set guioptions-=m  "remove menu bar
     " colorcolumn
-    set cc=100
+    " set cc=100
     " for line space
     set lsp=1
 endif
@@ -116,7 +116,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 " set the list chars
-set list listchars=tab:▸\ ,precedes:←,extends:→,nbsp:␣,trail:∙
+set list listchars=tab:»\ ,precedes:←,extends:→,nbsp:␣,trail:∙
 
 " for ale -- Asynchronous Lint Engine
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
