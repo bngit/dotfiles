@@ -13,7 +13,6 @@ Plugin 'Tagbar'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tomasr/molokai'
 Plugin 'vimwiki/vimwiki'
 Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-fugitive'
@@ -21,6 +20,14 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Yggdroot/indentLine'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
+
+" color scheme
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'tomasr/molokai'
+Plugin 'xolox/vim-colorscheme-switcher'
+Plugin 'Taverius/vim-colorscheme-manager'
+Plugin 'xolox/vim-misc'
 
 so ~/.vim/config/ctrlp_config.vim
 so ~/.vim/config/a_config.vim
@@ -34,6 +41,9 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax on
+
+" formatting for muti-byte character
+set fo+=mM
 
 " open GBK txt file correctly
 set encoding=utf-8
