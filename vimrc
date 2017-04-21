@@ -10,7 +10,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'a.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Tagbar'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vimwiki/vimwiki'
@@ -18,16 +18,19 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Yggdroot/indentLine'
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'w0rp/ale'
 
 " color scheme
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'tomasr/molokai'
-Plugin 'xolox/vim-colorscheme-switcher'
-Plugin 'Taverius/vim-colorscheme-manager'
-Plugin 'xolox/vim-misc'
+" Plugin 'xolox/vim-misc'
+" Plugin 'xolox/vim-colorscheme-switcher'
+" Plugin 'Taverius/vim-colorscheme-manager'
 
 so ~/.vim/config/ctrlp_config.vim
 so ~/.vim/config/a_config.vim
@@ -63,7 +66,7 @@ set undofile
 set undodir=$HOME/.vim/undofiles
 set undolevels=1000
 
-" set t_Co=256
+set t_Co=256
 set hlsearch
 so ~/.vim/config/cscope_maps.vim
 
@@ -88,7 +91,7 @@ if has("gui_running")
     set guioptions-=L  "remove left-hand scroll bar
     set guioptions-=m  "remove menu bar
     " colorcolumn
-    " set cc=100
+    set cc=120
     " for line space
     set lsp=1
 endif
@@ -101,7 +104,10 @@ set sidescroll=1
 set listchars+=precedes:<,extends:>
 " set cursorline
 let g:rehash256 = 1
-color molokai
+" color molokai
+color base16-default-dark
+set background=dark
+" colorscheme PaperColor
 
 " disable bell in vim
 set noeb vb t_vb=
@@ -134,4 +140,27 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " hight for 'vim-cpp-enhanced-highlight'
 let g:cpp_class_scope_highlight = 1
+
+
+let g:netrw_keepdir= 0
+let g:indentLine_char = '┊'
+
+let g:colorscheme_switcher_exclude_builtins=1
+let g:colorscheme_switcher_keep_background=1
+
+
+"let g:ycm_global_ycm_extra_conf='/home/not/Script/ycm_extra_conf.py'
+"let g:ycm_register_as_syntastic_checker=1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_confirm_extra_conf = 0
+nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_show_diagnostics_ui = 0   " disable syntex check
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_enable_diagnostic_signs = 0
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+let g:ycm_max_diagnostics_to_display = 30
+
 
