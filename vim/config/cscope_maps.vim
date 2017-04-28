@@ -106,7 +106,17 @@ if has("cscope")
     " can be simulated roughly via:
     "    nmap <C-@>s <C-W><C-S> :cs find s <C-R>=expand("<cword>")<CR><CR>
 
-	" use C-_ instead
+    " use C-_ instead
+    nmap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+
+    " use C-_ instead
     nmap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
     nmap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
     nmap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
@@ -122,7 +132,7 @@ if has("cscope")
     " (Note: you may wish to put a 'set splitright' in your .vimrc
     " if you prefer the new window on the right instead of the left
 
-	" use C-_ instead
+    " use C-_ instead
     nmap <C-Space><C-Space>s :vert scs find s <C-R>=expand("<cword>")<CR><CR>
     nmap <C-Space><C-Space>g :vert scs find g <C-R>=expand("<cword>")<CR><CR>
     nmap <C-Space><C-Space>c :vert scs find c <C-R>=expand("<cword>")<CR><CR>

@@ -1,4 +1,4 @@
-set nocompatible              " be iMproved, required
+set nocompatible              " be ViMproved, required
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -28,20 +28,13 @@ Plugin 'w0rp/ale'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'tomasr/molokai'
-" Plugin 'xolox/vim-misc'
-" Plugin 'xolox/vim-colorscheme-switcher'
-" Plugin 'Taverius/vim-colorscheme-manager'
-
-so ~/.vim/config/ctrlp_config.vim
-so ~/.vim/config/a_config.vim
-so ~/.vim/config/Tagbar_config.vim
-" so ~/.vim/config/YouCompleteMe_config.vim
-so ~/.vim/config/NERDtree_config.vim
-so ~/.vim/config/vimwiki_config.vim
-so ~/.vim/config/airline_config.vim
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+so ~/.vim/config/ctrlp_config.vim
+so ~/.vim/config/Tagbar_config.vim
+so ~/.vim/config/vimwiki_config.vim
 
 syntax on
 
@@ -85,11 +78,12 @@ set cino=>s,e0,n0,f0,{0,}0,^0,L-1,:s,=s,l0,b0,g0,hs,ps,ts,is,+s,c3,C0,/0,(s,us,U
 " GUI settings
 if has("gui_running")
 "    set guifont=monaco\ 10
-    set guifont=Ubuntu\ Mono\ 11
-    set guioptions-=T  "remove toolbar
+"    set guifont=Ubuntu\ Mono\ 11
+    set guifont=Consolas\ 11
+    "set guioptions-=T  "remove toolbar
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
-    set guioptions-=m  "remove menu bar
+    "set guioptions-=m  "remove menu bar
     " colorcolumn
     set cc=120
     " for line space
@@ -134,21 +128,45 @@ let g:indent_guides_start_level = 2
 " set the list chars
 set list listchars=tab:»\ ,precedes:←,extends:→,nbsp:␣,trail:∙
 
-" for ale -- Asynchronous Lint Engine
+
+"set laststatus=2
+"let g:airline_theme="molokai"
+"set ttimeoutlen=50
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#show_buffers = 0
+
+
+"""""""""""""""""""""Plugin 'a.vim'"""""""""""""""""""""
+let g:alternateSearchPath = 'sfr:../.,sfr:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:Pointiinc,sfr:groupinc,sfr:Pointkinc,sfr:publicinc,sfr:Turniinc,sfr:include'
+
+
+"""""""""""""""""""""Plugin 'w0rp/ale'"""""""""""""""""""""
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-" hight for 'vim-cpp-enhanced-highlight'
+
+"""""""""""""""""""""Plugin 'octol/vim-cpp-enhanced-highlight'"""""""""""""""""""""
 let g:cpp_class_scope_highlight = 1
 
 
+"""""""""""""""""""""Plugin 'scrooloose/nerdtree'"""""""""""""""""""""
 let g:netrw_keepdir= 0
+"map <leader>n :NERDTreeToggle<CR>
+nmap <silent> <F3> :NERDTreeToggle<CR>
+let NERDTreeHighlightCursorline=1
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+let g:netrw_home='~/bak'
+"close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" keep the current directory the same as the browsing directory.
+let g:netrw_keepdir= 0
+
+
+"""""""""""""""""""""Plugin 'Yggdroot/indentLine'"""""""""""""""""""""
 let g:indentLine_char = '┊'
 
-let g:colorscheme_switcher_exclude_builtins=1
-let g:colorscheme_switcher_keep_background=1
 
-
+"""""""""""""""""""""Plugin 'Valloric/YouCompleteMe'"""""""""""""""""""""
 "let g:ycm_global_ycm_extra_conf='/home/not/Script/ycm_extra_conf.py'
 "let g:ycm_register_as_syntastic_checker=1
 let g:ycm_collect_identifiers_from_tags_files = 1
