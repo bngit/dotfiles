@@ -22,7 +22,6 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'w0rp/ale'
 
 " color scheme
 Plugin 'nanotech/jellybeans.vim'
@@ -181,4 +180,10 @@ let g:ycm_enable_diagnostic_signs = 0
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 let g:ycm_max_diagnostics_to_display = 30
 
+
+"""""""""""""""""""""Plugin 'scrooloose/nerdcommenter'"""""""""""""""""""""
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Specifies whether to add extra spaces around delimiters
+let g:NERDSpaceDelims = 1
 
