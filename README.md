@@ -1,17 +1,18 @@
-# dotfiles
+# 目的
 
-I use this to manage all my dotfiles.
+1. 安装维护vim的配置文件
+2. 保存其它可能会使用到的配置文件
 
-## Usage
-./manage.sh install : Install the config files
+# 用法
 
-./manage.sh rmback : Rm the backup files
+## 安装vim的配置
 
-PS:
+```bash
+./install.sh vim
+```
 
-Need to install a powerline patched font. Follow the [documentation][0] 
-and the [repository][1] for details.
+## 清除vim的配置
 
-[0]: https://powerline.readthedocs.org/en/master/installation.html#patched-fonts
-[1]: https://github.com/pdf/ubuntu-mono-powerline-ttf
-
+```bash
+./install.sh clean
+```

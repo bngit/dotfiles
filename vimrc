@@ -1,41 +1,31 @@
-set nocompatible              " be ViMproved, required
-filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'taglist.vim'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'a.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Tagbar'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'vimwiki/vimwiki'
-Plugin 'itchyny/lightline.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Yggdroot/indentLine'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'jiangmiao/auto-pairs'
+" Plugin systen with 'vim-plug'
+" Automatically executes filetype plugin indent on and syntax enable
+call plug#begin()
+Plug 'gmarik/Vundle.vim'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-scripts/a.vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'majutsushi/tagbar'
+" Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'vimwiki/vimwiki'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Yggdroot/indentLine'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'airblade/vim-gitgutter'
+Plug 'jiangmiao/auto-pairs'
+Plug 'kien/rainbow_parentheses.vim'
 
 " color scheme
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'tomasr/molokai'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-so ~/.vim/config/ctrlp_config.vim
-so ~/.vim/config/Tagbar_config.vim
-so ~/.vim/config/vimwiki_config.vim
-
-syntax on
+Plug 'nanotech/jellybeans.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'tomasr/molokai'
+call plug#end()
 
 " formatting for muti-byte character
 set fo+=mM
@@ -52,59 +42,59 @@ set fileencodings=ucs-bom,utf-8,cp932,cp936
 " Use the following command to try (% the current file name)
 " :e ++enc=utf-8 %
 
-
 " persistent undo
 set undofile
 set undodir=$HOME/.vim/undofiles
 set undolevels=1000
 
+" for colors
 set t_Co=256
 set hlsearch
-so ~/.vim/config/cscope_maps.vim
+set background=dark
+" let g:rehash256 = 1 " for color molokai
+" color molokai
+color base16-default-dark
+" colorscheme PaperColor
 
-set tabstop=4
-set softtabstop=4
+" GUI settings
+if has("gui_running")
+    set guifont=Droid\ Sans\ Mono\ Regular\ 14
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
+    "set guioptions-=T  "remove toolbar
+    "set guioptions-=m  "remove menu bar
+    " colorcolumn
+    set cc=120
+endif
+
+" format control
+set tabstop=4 " Number of spaces that a <Tab> in the file counts for
 set shiftwidth=4
-set expandtab
-set showcmd
-set completeopt=longest,menu
-set laststatus=2
-set nowrap	" not wrap the line
+set expandtab " In Insert mode: Use the appropriate number of spaces to insert a <Tab>
+              " use CTRL-V<Tab> to insert real <Tab>
+set softtabstop=4 " Number of spaces that a <Tab> counts for while performing editing
+
+set nowrap  " not wrap the line
 set cindent
 " set autoindent
 set cino=>s,e0,n0,f0,{0,}0,^0,L-1,:s,=s,l0,b0,g0,hs,ps,ts,is,+s,c3,C0,/0,(s,us,U0,w0,W0,m0,j0,J0,)20,*70,#0
 
-" GUI settings
-if has("gui_running")
-"    set guifont=monaco\ 10
-"    set guifont=Ubuntu\ Mono\ 11
-    set guifont=Consolas\ 11
-    "set guioptions-=T  "remove toolbar
-    set guioptions-=r  "remove right-hand scroll bar
-    set guioptions-=L  "remove left-hand scroll bar
-    "set guioptions-=m  "remove menu bar
-    " colorcolumn
-    set cc=120
-    " for line space
-    set lsp=1
-endif
-
-" set indicator
+" display on screen
+set showcmd
+set completeopt=longest,menu
+set laststatus=2
+set linespace=1
 set nu
 set foldcolumn=2
 set textwidth=100
 set sidescroll=1
 set listchars+=precedes:<,extends:>
-" set cursorline
-let g:rehash256 = 1
-" color molokai
-color base16-default-dark
-set background=dark
-" colorscheme PaperColor
 
 " disable bell in vim
 set noeb vb t_vb=
 
+" mapping
+so ~/.vim/config/cscope_maps.vim
 " enter fullscreen for gvim in gnome3
 map <silent> <F11>
 \    :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
@@ -120,28 +110,34 @@ endif
 set backspace=2 " make backspace work like most other apps
 set backspace=indent,eol,start " backspace fix
 
-" for indent_guide
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-
 " set the list chars
 set list listchars=tab:»\ ,precedes:←,extends:→,nbsp:␣,trail:∙
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"set laststatus=2
-"let g:airline_theme="molokai"
-"set ttimeoutlen=50
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#show_buffers = 0
+"""""""""""""""""""""Plug 'nathanaelkane/vim-indent-guides'"""""""""""""""""""""
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+
+
+"""""""""""""""""""""Plug 'ctrlpvim/ctrlp.vim'"""""""""""""""""""""
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_extensions = ['tag', 'buffertag']
+
+"set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+"set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn|out)$',
+    \ 'file': '\v\.(exe|so|dll|so|swp|IAD|o|workspace|depend|layout|cbp)$',
+    \ 'link': 'some_bad_symbolic_links',}
+let g:ctrlp_by_filename = 1
 
 
 """""""""""""""""""""Plugin 'a.vim'"""""""""""""""""""""
 let g:alternateSearchPath = 'sfr:../.,sfr:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:Pointiinc,sfr:groupinc,sfr:Pointkinc,sfr:publicinc,sfr:Turniinc,sfr:include'
-
-
-"""""""""""""""""""""Plugin 'w0rp/ale'"""""""""""""""""""""
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 
 """""""""""""""""""""Plugin 'octol/vim-cpp-enhanced-highlight'"""""""""""""""""""""
@@ -166,19 +162,17 @@ let g:indentLine_char = '┊'
 
 
 """""""""""""""""""""Plugin 'Valloric/YouCompleteMe'"""""""""""""""""""""
-"let g:ycm_global_ycm_extra_conf='/home/not/Script/ycm_extra_conf.py'
-"let g:ycm_register_as_syntastic_checker=1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_confirm_extra_conf = 0
-nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:ycm_show_diagnostics_ui = 0   " disable syntex check
-let g:ycm_enable_diagnostic_highlighting = 0
-let g:ycm_enable_diagnostic_signs = 0
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-let g:ycm_max_diagnostics_to_display = 30
+" let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_seed_identifiers_with_syntax = 1
+" let g:ycm_confirm_extra_conf = 0
+" nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
+" nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+" nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" let g:ycm_show_diagnostics_ui = 0   " disable syntex check
+" let g:ycm_enable_diagnostic_highlighting = 0
+" let g:ycm_enable_diagnostic_signs = 0
+" nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+" let g:ycm_max_diagnostics_to_display = 30
 
 
 """""""""""""""""""""Plugin 'scrooloose/nerdcommenter'"""""""""""""""""""""
@@ -187,3 +181,29 @@ let g:NERDDefaultAlign = 'left'
 " Specifies whether to add extra spaces around delimiters
 let g:NERDSpaceDelims = 1
 
+
+"""""""""""""""""""""Plug 'majutsushi/tagbar'"""""""""""""""""""""
+nmap <silent> <F4> :TagbarToggle<CR>
+let g:tagbar_ctags_bin = 'ctags'
+let g:tagbar_width = 30
+let g:tagbar_right = 1
+
+" for the vimwiki to use tagbar
+let g:tagbar_type_vimwiki = {
+          \   'ctagstype':'vimwiki'
+          \ , 'kinds':['h:header']
+          \ , 'sro':'&&&'
+          \ , 'kind2scope':{'h':'header'}
+          \ , 'sort':0
+          \ , 'ctagsbin':'~/.vim/config/vwtags.py'
+          \ , 'ctagsargs': 'default'
+          \ }
+
+
+"""""""""""""""""""""Plug 'vimwiki/vimwiki'"""""""""""""""""""""
+let wiki = {}
+let wiki.path = '~/Dropbox/vimwiki/'
+let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'} " for code highlight
+let g:vimwiki_list = [{'path': '~/Dropbox/suntecwiki'},
+                    \ {'path': '~/Dropbox/vimwiki'}]
+"let g:vimwiki_folding = 'expr'
