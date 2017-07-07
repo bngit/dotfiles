@@ -11,7 +11,7 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vimwiki/vimwiki'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Yggdroot/indentLine'
@@ -19,12 +19,13 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'luochen1990/rainbow'
 
 " color scheme
 Plug 'nanotech/jellybeans.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " formatting for muti-byte character
@@ -53,8 +54,9 @@ set hlsearch
 set background=dark
 " let g:rehash256 = 1 " for color molokai
 " color molokai
-color base16-default-dark
+" color base16-default-dark
 " colorscheme PaperColor
+colorscheme gruvbox
 
 " GUI settings
 if has("gui_running")
@@ -207,3 +209,6 @@ let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'} " for code highlig
 let g:vimwiki_list = [{'path': '~/Dropbox/suntecwiki'},
                     \ {'path': '~/Dropbox/vimwiki'}]
 "let g:vimwiki_folding = 'expr'
+
+"""""""""""""""""""""Plugin 'luochen1990/rainbow'"""""""""""""""""""""
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
