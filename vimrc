@@ -161,6 +161,7 @@ let g:netrw_keepdir= 0
 
 """""""""""""""""""""Plugin 'Yggdroot/indentLine'"""""""""""""""""""""
 let g:indentLine_char = '┊'
+let g:indentLine_concealcursor='nc' " fix issues when editing json files
 
 
 """""""""""""""""""""Plugin 'Valloric/YouCompleteMe'"""""""""""""""""""""
@@ -212,3 +213,7 @@ let g:vimwiki_list = [{'path': '~/Dropbox/suntecwiki'},
 
 """""""""""""""""""""Plugin 'luochen1990/rainbow'"""""""""""""""""""""
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+
+
+"""""""""""""""""""""Plug 'airblade/vim-gitgutter'"""""""""""""""""""""
+let g:gitgutter_max_signs = 9999  " default value
