@@ -1,13 +1,15 @@
+set nocompatible              " be ViMproved, required
+
 " Plugin systen with 'vim-plug'
 " Automatically executes filetype plugin indent on and syntax enable
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 Plug 'gmarik/Vundle.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/a.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'majutsushi/tagbar'
-" Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vimwiki/vimwiki'
@@ -56,11 +58,13 @@ set background=dark
 " color molokai
 " color base16-default-dark
 " colorscheme PaperColor
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme jellybeans
 
 " GUI settings
 if has("gui_running")
-    set guifont=Droid\ Sans\ Mono\ Regular\ 14
+    " set guifont=Droid\ Sans\ Mono\ Regular\ 14
+    set guifont=Consolas\ 11
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
     "set guioptions-=T  "remove toolbar
@@ -165,17 +169,17 @@ let g:indentLine_concealcursor='nc' " fix issues when editing json files
 
 
 """""""""""""""""""""Plugin 'Valloric/YouCompleteMe'"""""""""""""""""""""
-" let g:ycm_collect_identifiers_from_tags_files = 1
-" let g:ycm_seed_identifiers_with_syntax = 1
-" let g:ycm_confirm_extra_conf = 0
-" nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
-" nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
-" nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" let g:ycm_show_diagnostics_ui = 0   " disable syntex check
-" let g:ycm_enable_diagnostic_highlighting = 0
-" let g:ycm_enable_diagnostic_signs = 0
-" nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-" let g:ycm_max_diagnostics_to_display = 30
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_confirm_extra_conf = 0
+nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_show_diagnostics_ui = 0   " disable syntex check
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_enable_diagnostic_signs = 0
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+let g:ycm_max_diagnostics_to_display = 30
 
 
 """""""""""""""""""""Plugin 'scrooloose/nerdcommenter'"""""""""""""""""""""
