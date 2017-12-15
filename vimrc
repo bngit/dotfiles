@@ -10,8 +10,8 @@ Plug 'vim-scripts/a.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'scrooloose/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
@@ -61,6 +61,11 @@ set background=dark
 " colorscheme gruvbox
 colorscheme jellybeans
 
+" mouse
+set mouse=a
+
+set cc=120
+
 " GUI settings
 if has("gui_running")
     " set guifont=Droid\ Sans\ Mono\ Regular\ 14
@@ -70,7 +75,6 @@ if has("gui_running")
     "set guioptions-=T  "remove toolbar
     "set guioptions-=m  "remove menu bar
     " colorcolumn
-    set cc=120
 endif
 
 " format control
@@ -140,6 +144,7 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(exe|so|dll|so|swp|IAD|o|workspace|depend|layout|cbp)$',
     \ 'link': 'some_bad_symbolic_links',}
 let g:ctrlp_by_filename = 1
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
 
 
 """""""""""""""""""""Plugin 'a.vim'"""""""""""""""""""""
@@ -151,16 +156,16 @@ let g:cpp_class_scope_highlight = 1
 
 
 """""""""""""""""""""Plugin 'scrooloose/nerdtree'"""""""""""""""""""""
-let g:netrw_keepdir= 0
-"map <leader>n :NERDTreeToggle<CR>
-nmap <silent> <F3> :NERDTreeToggle<CR>
-let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$' ]
-let g:netrw_home='~/bak'
-"close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" keep the current directory the same as the browsing directory.
-let g:netrw_keepdir= 0
+" let g:netrw_keepdir= 0
+" "map <leader>n :NERDTreeToggle<CR>
+" nmap <silent> <F3> :NERDTreeToggle<CR>
+" let NERDTreeHighlightCursorline=1
+" let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+" let g:netrw_home='~/bak'
+" "close vim if the only window left open is a NERDTree
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" " keep the current directory the same as the browsing directory.
+" let g:netrw_keepdir= 0
 
 
 """""""""""""""""""""Plugin 'Yggdroot/indentLine'"""""""""""""""""""""
