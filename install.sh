@@ -16,6 +16,9 @@ function installvim {
     ln -s ${CURRPATH}/vimrc ~/.vimrc
     ln -s ${CURRPATH}/gvimrc ~/.gvimrc
 
+    # check if curl command exist
+    command -v curl >/dev/null 2>&1 || { echo "'curl' is not installed.  Aborting." >&2; exit 1; }
+
     # install vim-plug
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

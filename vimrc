@@ -69,7 +69,8 @@ set cc=120
 " GUI settings
 if has("gui_running")
     " set guifont=Droid\ Sans\ Mono\ Regular\ 14
-    set guifont=Consolas\ 11
+    " set guifont=Consolas\ 11
+    set guifont=Ubuntu\ Mono\ 13
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
     "set guioptions-=T  "remove toolbar
