@@ -3,25 +3,21 @@ set nocompatible              " be ViMproved, required
 " Plugin systen with 'vim-plug'
 " Automatically executes filetype plugin indent on and syntax enable
 call plug#begin('~/.vim/plugged')
-Plug 'gmarik/Vundle.vim'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-scripts/a.vim'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'micbou/a.vim' " Replace with vim-scripts/a.vim to fix imcompatible with YouCompleteMe
+                    " see https://github.com/Valloric/YouCompleteMe/issues/2791
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe'
-" Plug 'scrooloose/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Yggdroot/indentLine'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'luochen1990/rainbow'
+Plug 'rhysd/vim-clang-format' " format C/C++
 
 " color scheme
 Plug 'nanotech/jellybeans.vim'
@@ -64,7 +60,7 @@ colorscheme jellybeans
 " mouse
 set mouse=a
 
-set cc=120
+set cc=100
 
 " GUI settings
 if has("gui_running")
@@ -128,10 +124,6 @@ set list listchars=tab:»\ ,precedes:←,extends:→,nbsp:␣,trail:∙
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""Plug 'nathanaelkane/vim-indent-guides'"""""""""""""""""""""
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-
 
 """""""""""""""""""""Plug 'ctrlpvim/ctrlp.vim'"""""""""""""""""""""
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -154,19 +146,8 @@ let g:alternateSearchPath = 'sfr:../.,sfr:../source,sfr:../src,sfr:../include,sf
 
 """""""""""""""""""""Plugin 'octol/vim-cpp-enhanced-highlight'"""""""""""""""""""""
 let g:cpp_class_scope_highlight = 1
-
-
-"""""""""""""""""""""Plugin 'scrooloose/nerdtree'"""""""""""""""""""""
-" let g:netrw_keepdir= 0
-" "map <leader>n :NERDTreeToggle<CR>
-" nmap <silent> <F3> :NERDTreeToggle<CR>
-" let NERDTreeHighlightCursorline=1
-" let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$' ]
-" let g:netrw_home='~/bak'
-" "close vim if the only window left open is a NERDTree
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" " keep the current directory the same as the browsing directory.
-" let g:netrw_keepdir= 0
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
 
 
 """""""""""""""""""""Plugin 'Yggdroot/indentLine'"""""""""""""""""""""
@@ -213,17 +194,21 @@ let g:tagbar_type_vimwiki = {
           \ }
 
 
-"""""""""""""""""""""Plug 'vimwiki/vimwiki'"""""""""""""""""""""
-let wiki = {}
-let wiki.path = '~/Dropbox/vimwiki/'
-let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'} " for code highlight
-let g:vimwiki_list = [{'path': '~/Dropbox/suntecwiki'},
-                    \ {'path': '~/Dropbox/vimwiki'}]
-"let g:vimwiki_folding = 'expr'
-
 """""""""""""""""""""Plugin 'luochen1990/rainbow'"""""""""""""""""""""
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 
 
 """""""""""""""""""""Plug 'airblade/vim-gitgutter'"""""""""""""""""""""
 let g:gitgutter_max_signs = 9999  " default value
+
+
+"""""""""""""""""""""Plug 'rhysd/vim-clang-format'"""""""""""""""""""""
+let g:clang_format#style_options = {
+            \ "BasedOnStyle": "LLVM",
+            \ "IndentWidth": 4,
+            \ "BreakBeforeBraces": "Stroustrup",
+            \ "BreakBeforeBinaryOperators": "NonAssignment",
+            \ "ColumnLimit": 100,
+            \ "AlignAfterOpenBracket": "DontAlign",
+            \ "AccessModifierOffset": -4,
+            \ "ContinuationIndentWidth": 4}
